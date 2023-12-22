@@ -1,6 +1,7 @@
 package edu.java.toDoList.services;
 
 import edu.java.toDoList.controllers.dto.TaskDto;
+import edu.java.toDoList.exceptions.TaskNotFoundException;
 import edu.java.toDoList.models.entities.Task;
 import edu.java.toDoList.models.repositories.TaskRepository;
 import edu.java.toDoList.services.interfaces.TaskServiceInterface;
