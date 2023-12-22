@@ -4,7 +4,7 @@ import edu.java.toDoList.models.entities.Task;
 
 import java.time.LocalDate;
 
-/** Clas represent a task DTO.
+/** Class represent a task DTO.
  * @param id Identifier of the task.
  * @param description Description of the task.
  * @param checked If the task is checked.
