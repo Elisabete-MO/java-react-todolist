@@ -17,4 +17,16 @@ public record TaskDto(Long id, String description, boolean checked) {
       return new Task(id, description, checked);
     }
   }
+
+  public static TaskDto fromEntity(Task task) {
+    return new TaskDto(task.getId(), task.getDescription(), task.getChecked());
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public boolean getChecked() {
+    return checked;
+  }
 }

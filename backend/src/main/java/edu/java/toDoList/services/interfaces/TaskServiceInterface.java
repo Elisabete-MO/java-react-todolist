@@ -3,6 +3,7 @@ package edu.java.toDoList.services.interfaces;
 import edu.java.toDoList.controllers.dto.TaskDto;
 import edu.java.toDoList.models.entities.Task;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Task service interface for {@link Task} entity operations that implements
@@ -11,8 +12,8 @@ import java.util.List;
  */
 public interface TaskServiceInterface {
   List<TaskDto> findAll();
-  TaskDto findById(Long id);
-  void save(Task task);
+  Optional<TaskDto> findById(Long id);
+  TaskDto save(TaskDto taskDto);
   void delete(Long id);
-  void update(Task task, Long id);
+  void update(TaskDto taskDto, Long id);
 }

@@ -5,11 +5,10 @@ import edu.java.toDoList.exceptions.TaskNotFoundException;
 import edu.java.toDoList.models.entities.Task;
 import edu.java.toDoList.models.repositories.TaskRepository;
 import edu.java.toDoList.services.interfaces.TaskServiceInterface;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Implementation of the <b>Strategy</b> {@link TaskServiceInterface}, which
@@ -31,19 +30,19 @@ public class TaskService implements TaskServiceInterface {
   }
 
   @Override
-  public TaskDto findById(Long id) {
-    Task task = taskRepository.findById(id)
+  public Optional<TaskDto> findById(Long id) {
+    return taskRepository.findById(id)
+        .map(e -> new TaskDto(
+            e.getId(),
+            e.getDescription(),
+            e.getChecked()))
+        .map(Optional::of)
         .orElseThrow(() -> new TaskNotFoundException("Tarefa não encontrada!"));
-
-    return new TaskDto(
-        task.getId(),
-        task.getDescription(),
-        task.getChecked());
   }
 
   @Override
-  public void save(Task task) {
-    taskRepository.save(task);
+  public TaskDto save(TaskDto taskDto) {
+    return TaskDto.fromEntity(taskRepository.save(taskDto.toEntity()));
   }
 
   @Override
@@ -54,13 +53,15 @@ public class TaskService implements TaskServiceInterface {
   }
 
   @Override
-  public void update(Task task, Long id) {
+  public TaskDto update(TaskDto taskDto, Long id) {
     Optional<Task> taskToUpdate = Optional.ofNullable(taskRepository.findById(id)
         .orElseThrow(() -> new TaskNotFoundException("Tarefa não encontrada!")));
+
     taskToUpdate.ifPresent(t -> {
-      t.setDescription(task.getDescription());
-      t.setChecked(task.getChecked());
+      t.setDescription(taskDto.getDescription());
+      t.setChecked(taskDto.getChecked());
       taskRepository.save(t);
     });
+
   }
 }
