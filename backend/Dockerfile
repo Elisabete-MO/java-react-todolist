@@ -3,11 +3,10 @@ FROM maven:3-openjdk-17 as build-image
 
 WORKDIR /to-build-app
 
-COPY pom.xml .
 COPY src ./src
+COPY pom.xml .
 
 RUN mvn dependency:go-offline
-
 RUN mvn package -DskipTests
 
 # Segundo estágio: construção da imagem final

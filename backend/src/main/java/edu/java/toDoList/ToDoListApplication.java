@@ -19,6 +19,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 		contact = @io.swagger.v3.oas.annotations.info.Contact(email = "emoliv-code@gmail.com"),
 		license = @io.swagger.v3.oas.annotations.info.License(name = "Apache 2.0", url = "https://www.apache.org/licenses/LICENSE-2.0")
 ))
+@EntityScan("edu.java.toDoList.models.entities")
+@EnableJpaRepositories("edu.java.toDoList.models.repositories")
+@ComponentScan("edu.java.toDoList")
 public class ToDoListApplication {
 
 	public static void main(String[] args) {
