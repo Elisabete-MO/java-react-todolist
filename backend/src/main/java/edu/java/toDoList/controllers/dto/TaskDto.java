@@ -11,22 +11,10 @@ import java.time.LocalDate;
  */
 public record TaskDto(Long id, String description, boolean checked) {
   public Task toEntity() {
-    if (description == null || description.isBlank()) {
-      throw new IllegalArgumentException("Description cannot be null");
-    } else {
       return new Task(id, description, checked);
-    }
   }
 
   public static TaskDto fromEntity(Task task) {
     return new TaskDto(task.getId(), task.getDescription(), task.getChecked());
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public boolean getChecked() {
-    return checked;
   }
 }

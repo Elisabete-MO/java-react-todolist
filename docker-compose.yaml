@@ -10,14 +10,14 @@ services:
       MYSQL_DATABASE: todo_db
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
-#  backend:
-#    build:
-#      context: ./backend/
-#      dockerfile: Dockerfile
-#    ports:
-#      - 8080:8080
-#    depends_on:
-#      - mysql
+  backend:
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - mysql
       
 #  frontend:
 #    build:

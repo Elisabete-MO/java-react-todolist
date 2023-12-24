@@ -1,5 +1,6 @@
 package edu.java.toDoList.controllers;
 
+import edu.java.toDoList.controllers.dto.TaskCreationDto;
 import edu.java.toDoList.controllers.dto.TaskDto;
 import edu.java.toDoList.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,7 @@ public class TaskController {
   }
 
   @PostMapping()
-  public ResponseEntity<TaskDto> createTask(@RequestBody TaskDto taskDto) {
+  public ResponseEntity<TaskDto> createTask(@RequestBody TaskCreationDto taskDto) {
     TaskDto newTask = taskService.save(taskDto);
     return ResponseEntity.status(HttpStatus.CREATED).body(newTask);
   }

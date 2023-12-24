@@ -1,5 +1,6 @@
 package edu.java.toDoList.services;
 
+import edu.java.toDoList.controllers.dto.TaskCreationDto;
 import edu.java.toDoList.controllers.dto.TaskDto;
 import edu.java.toDoList.exceptions.TaskNotFoundException;
 import edu.java.toDoList.models.entities.Task;
@@ -41,7 +42,7 @@ public class TaskService implements TaskServiceInterface {
   }
 
   @Override
-  public TaskDto save(TaskDto taskDto) {
+  public TaskDto save(TaskCreationDto taskDto) {
     return TaskDto.fromEntity(taskRepository.save(taskDto.toEntity()));
   }
 
@@ -53,15 +54,14 @@ public class TaskService implements TaskServiceInterface {
   }
 
   @Override
-  public TaskDto update(TaskDto taskDto, Long id) {
+  public void update(TaskDto taskDto, Long id) {
     Optional<Task> taskToUpdate = Optional.ofNullable(taskRepository.findById(id)
         .orElseThrow(() -> new TaskNotFoundException("Tarefa não encontrada!")));
 
     taskToUpdate.ifPresent(t -> {
-      t.setDescription(taskDto.getDescription());
-      t.setChecked(taskDto.getChecked());
+      t.setDescription(taskDto.toEntity().getDescription());
+      t.setChecked(taskDto.toEntity().getChecked());
       taskRepository.save(t);
     });
-
   }
 }
