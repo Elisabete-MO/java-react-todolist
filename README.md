@@ -76,7 +76,7 @@ class Task {
 <li>Antes de executar o banco de dados com o Docker, certifique-se de ter o Docker instalado em sua máquina. Você pode baixá-lo em: <a href="https://www.docker.com/" target="_blank">https://www.docker.com/</a></li>
 <li>Antes de iniciar o frontend, certifique-se de ter o Node.js e o npm instalados. Você pode baixá-los em: <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></li>
 <li>Antes de executar o backend, certifique-se de ter o Java instalado em sua máquina. Você pode baixá-lo em: <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">https://www.oracle.com/java/technologies/javase-downloads.html</a></li>
-
+<br>
 
 <p> :heavy_check_mark: No Terminal/Console:</p>
 
