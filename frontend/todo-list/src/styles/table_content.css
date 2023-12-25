@@ -1,16 +1,40 @@
-.table_row {
+.table_row , table_row_desc {
   color: #023031;
   display: flex;
   font-family: 'Jura';
   flex-direction: row;
+  justify-content: space-between;
   width: 90%;
 }
 
-.table_row > div {
+.table_row_desc {
+  display: flex;
+  flex-flow: row nowrap;
+  height: auto;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.table_row_desc input {
+  border: 0.5px solid #e2e3e400;
+  border-radius: 7px;
+  box-shadow: 0 0 26px rgba(59, 59, 59, 0.8);
+  color: #003be5;
+  font-family: 'Jura';
+  font-size: 0.4em;
+  height: auto;
+  margin: 1%;
+  padding: 0;
+  text-align: center;
+  width: 70%;
+}
+
+.table_row p {
   color: rgb(233, 233, 233);
   font-family: 'Jura';
   font-size: 0.4em;
   font-weight: 900;
+  height: auto;
   letter-spacing: 0.01em;
   margin: auto;
   padding: 0 5vw;
@@ -21,15 +45,7 @@
   width: 0.4em;
 }
 
-.item-row > div {
-  margin: 5px;
-}
-
-.item-row-desc {
-  flex-grow: 1;
-}
-
-.item-row-desc-check {
+.table_row_desc_check {
   text-decoration: line-through;
 }
 
@@ -39,4 +55,8 @@
 
 .btnRem:hover {
   box-shadow: 0 0 5px red , 0 0 25px red;
+}
+
+.btnIns:hover {
+  box-shadow: 0 0 5px #2ff924 , 0 0 25px #2ff924;
 }

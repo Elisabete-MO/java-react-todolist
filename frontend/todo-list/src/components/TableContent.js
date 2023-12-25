@@ -19,27 +19,25 @@ export default function TableContent({ index, id, description, check }) {
       { editMode ?
         (
           <>
-            <div className="table_row-desc">
+            <div className="table_row_desc">
               <input
                 id={`todo-task-edit-input-${index}`}
                 value={inputDescription}
                 onChange={editHandle}
               />
-            </div>
-            <div>
               <button
                 type="button"
-                className="btnEdit"
+                className="btnIns"
                 id={`todo-task-edit-save-btn-${index}`}
                 onClick={editSave}
-              >Check
+              >Confirmar
               </button>
               <button
                 type="button"
                 className="btnRem"
                 id={`todo-task-edit-cancel-btn-${index}`}
                 onClick={()=>setEditMode(false)}
-              >Cancel
+              >Cancelar
               </button>
             </div>
           </>
@@ -54,9 +52,9 @@ export default function TableContent({ index, id, description, check }) {
               defaultChecked={check}
               onChange={changeCheck}
             />
-            <div
-              className={("table_row-desc", check && "table_row-desc-check")}
-            >{description}</div>
+            <p className={("table_row_desc", check && "table_row_desc_check")}>
+              {description}
+            </p>
               <button
                 type="button"
                 className="btnEdit"
