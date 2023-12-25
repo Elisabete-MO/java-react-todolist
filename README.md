@@ -2,23 +2,20 @@
 
 <h3 align="center"><strong> API Rest para gerenciamento de tarefas </strong></h3>
 <p align="center">
-     <a alt="Java" href="https://java.com" target="_blank">
-        <img src="https://img.shields.io/badge/Java-v17.0.6-5382A1.svg" />
+     <a alt="JavaScript" href="https://www.javascript.com/" target="_blank">
+        <img src="https://img.shields.io/badge/JavaScript-ES14-F7DF1E.svg" />
     </a>
-    <a alt="Kotlin" href="https://kotlinlang.org" target="_blank">
-        <img src="https://img.shields.io/badge/Kotlin-v1.8.22-purple.svg" />
+     <a alt="React" href="https://react.dev/" target="_blank">
+        <img src="https://img.shields.io/badge/React-v18.2.0-61DAFB.svg" />
+    </a>
+     <a alt="Java" href="https://java.com" target="_blank">
+        <img src="https://img.shields.io/badge/Java-v17.0.6-ED8B00.svg" />
     </a>
     <a alt="Spring Boot" href="https://spring.io/projects/spring-boot" target="_blank">
-        <img src="https://img.shields.io/badge/SpringBoot-v3.1.14-lightgreen.svg" />
+        <img src="https://img.shields.io/badge/SpringBoot-v3.2.1-6DB33F.svg" />
     </a>
-    <a alt="Maven" href="https://maven.apache.org/" target="_blank">
-        <img src="https://img.shields.io/badge/Maven-v4.0.0-red.svg" />
-    </a>
-    <a alt="H2 database" href="https://www.h2database.com/html/main.html"  target="_blank">
-        <img src="https://img.shields.io/badge/H2-v2.1.214-darkblue.svg" />
-    </a>
-    <a alt="Flyway" href="https://flywaydb.org/" target="_blank">
-        <img src="https://img.shields.io/badge/Flyway-v9.16.3-darkred.svg">
+    <a alt="MySQL" href="https://www.mysql.com/" target="_blank">
+        <img src="https://img.shields.io/badge/MySQL-v8.0.32-blue.svg" />
     </a>
 </p>
 
@@ -29,90 +26,52 @@ possível criar, editar, excluir e listar tarefas.
 
 <h3> :bookmark_tabs: O usuário será capaz de: </h3>
 
-- [ ] Fazer login; <br>
-- [ ] Adicionar, remover e editar uma tarefa;<br>
-- [ ] Marcar e desmarcar uma tarefa como concluída;<br>
-- [ ] Adicionar, remover e editar uma categoria;<br>
-- [ ] Visualizar uma lista com as tarefas cadastradas;<br>
-- [ ] Filtrar as tarefas por status, categoria ou data de criação;<br>
+:heavy_check_mark: Adicionar, remover e editar uma tarefa;<br>
+:heavy_check_mark: Marcar e desmarcar uma tarefa como concluída;<br>
+:heavy_check_mark: Visualizar uma lista com as tarefas cadastradas;<br>
 
 <h3> Objetivo: </h3>
-  <h6><strong> :warning: Projeto em desenvolvimento :construction: </strong></h6>
-  <p> O principal propósito deste projeto é aplicar os padrões de projeto MVC em uma aplicação Kotlin e Spring Boot com frontend desenvolvido em Angular. A intenção é criar uma API Rest totalmente documentada com o auxílio do Swagger e testá-la usando JUnit e Mockito. A API será responsável por gerenciar as tarefas de um usuário, integrando o sistema com um banco de dados relacional em memória sem esquecer de aplicar os conceitos de boas práticas em desenvolvimento de software no atendimento aos seguintes requisitos:</p>
+  <p> O principal propósito deste projeto é aplicar os padrões de projeto 
+MVC em uma aplicação Java e Spring Boot com frontend desenvolvido em React. 
+A intenção é criar uma API Rest totalmente documentada com o auxílio do Swagger. A API será responsável por gerenciar as tarefas de um usuário, integrando o sistema com um banco de dados relacional sem esquecer de aplicar os conceitos de boas práticas em desenvolvimento de software no atendimento aos seguintes requisitos:</p>
 
 <h3><strong> :memo: Requisitos </strong></h3>
 
 - [x] Desenhar o **diagrama de classes** da aplicação com Mermaid;
       
  <details> <summary><strong> Diagrama de Classes </strong></summary>
-<span> O diagrama de classes abaixo ilustra a estrutura do projeto, destacando as principais entidades e suas relações. Ele fornece uma visão geral da arquitetura do sistema e como as classes interagem umas com as outras.
-Neste diagrama, é possível observar as principais classes envolvidas no projeto incluindo `User` e `Task`. A relação entre essas classes é representada pelas setas, indicando como elas se conectam.
-Este diagrama serve como um guia visual útil para entender a estrutura do sistema e as classes envolvidas nas operações.</span>
+<span> O diagrama de classes abaixo oferece uma representação visual clara 
+da arquitetura do projeto, destacando as principais entidades e suas 
+inter-relações. <br>
+Ao analisar este diagrama, destaca-se a presença central da classe Task, que 
+desempenha um papel fundamental nas operações do sistema. Essa representação 
+visual simplificada não apenas facilita a compreensão da estrutura existente,
+mas também oferece um recurso valioso para orientar futuras implementações e modificações e, estabelece uma base sólida para adaptações e expansões.</span>
 
 ```mermaid
 classDiagram
 class Task { 
-    +id: string
-    +date: date
-    +title: string
+    +id: number
     +description: string
-    +status: Status
-    +userId: number
-    +save(task: Task) void
+    +checked: boolean
+    +save(task: Task) Task
     +update(task: Task) Task
     +delete(id: number) void
     +findAll() List~Task~
-    +findTaskByUserId(userId: number) List~Task~
+    +findById(id: number) Optional~Task~
 }
-
-class User {
-    +id: number
-    +username: string
-    +email: string
-    -password: string
-    -image_url: string
-    +save(user: User): void
-    +update(user: User): User
-    +delete(id: number): void
-    +findAll(): List~User~
-    +findByUsername(username: string): User 
-    }
-
-class Status { 
-    <<enumeration>>
-    OPEN
-    IN_PROGRESS
-    DONE 
-    }
-  		
-  User "1" *-- "n" Task
-  Task "1" -- "1" Status
 ```
-</details>
+  </details>
 
-- [x] Desenvolver a API em Kotlin e Spring; <br>
+- [x] Desenvolver a API em Java e Spring Boot; <br>
 - [x] Documentar a API com o Swagger; <br>
-- [ ] Estruturar as classes no banco de dados; <br>
-  - [x] Classe User; <br>
-  - [x] Classe Task; <br>
-  - [x] Criar as relações entre as tabelas; <br>
-  - [x] Criar as queries para inserir os dados; <br>
-  - [x] Criar a query para consultar as tarefas por id de usuário; <br>
-  - [ ] Criar a query para consultar tarefas por status; <br>
-  - [ ] Criar a query para consultar tarefas por categoria; <br>
-  - [ ] Criar a query para consultar tarefas por data de criação; <br>
-  - [x] Criar as queries para deletar os dados; <br>
-  - [x] Criar as queries para atualizar os dados; <br>
-  - [x] Introduzir o processo de versionamento de banco de dados via FlyWay;<br>
-- [ ] Introduzir processo de autenticação de usuários com o Spring Security;<br>
-- [ ] Desenvolver o frontend em Angular; <br>
-- [ ] Fazer o deploy da aplicação no Railway.
+- [x] Estruturar a classe Task no banco de dados com Spring Data JPA; <br>
+- [x] Desenvolver o frontend em React; <br>
+- [ ] Aplicar virtualização de contêineres. <br>
 
 </details>
 
-<h6> :rotating_light: Todos esses conhecimentos foram adquiridos e/ou aprimorados durante o Code Update TQI - Backend com Kotlin e Java, promovido pela Digital Innovation One. </h6>
-
-<h3> :pencil: Instruções de Uso</h3>
+<h3> :pencil: Orientações </h3>
 
 <p> :heavy_check_mark: No Terminal/Console:</p>
 
