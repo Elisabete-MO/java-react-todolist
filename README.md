@@ -73,18 +73,28 @@ class Task {
 
 <h3> :pencil: Orientações </h3>
 
+<li>Antes de executar o banco de dados com o Docker, certifique-se de ter o Docker instalado em sua máquina. Você pode baixá-lo em: <a href="https://www.docker.com/" target="_blank">https://www.docker.com/</a></li>
+<li>Antes de iniciar o frontend, certifique-se de ter o Node.js e o npm instalados. Você pode baixá-los em: <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></li>
+<li>Antes de executar o backend, certifique-se de ter o Java instalado em sua máquina. Você pode baixá-lo em: <a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">https://www.oracle.com/java/technologies/javase-downloads.html</a></li>
+
+
 <p> :heavy_check_mark: No Terminal/Console:</p>
 
 <h6> :information_source: Visando facilitar a demostração da aplicação, recomendo a execução do projeto através da IDE do IntelliJ IDEA. </h6>
 
 <ol>
-	<li>Faça um clone do projeto na sua máquina: <code>git clone git@github.com:Elisabete-MO/java-react-todolist.git</code></li>
+    <li>Faça um clone do projeto na sua máquina: <code>git clone git@github.com:Elisabete-MO/java-react-todolist.git</code></li>
     <li>Abra o projeto no IntelliJ IDEA;</li>
-    <li>Entre na pasta raiz do projeto: <code>cd <nome_da_pasta> </code></li>
-	<li>Execute o comando: <code>mvn install</code></li>
+    <li>Entre na pasta raiz do projeto: <code>cd java-react-todo </code></li>
+    <li>Execute o comando: <code>docker-compose up -d</code></li> para executar o banco de dados
+    <li>Entre na pasta raiz do backend: <code>cd backend</code></li>
+    <li>Execute o comando: <code>mvn install</code></li>
     <li>Execute o comando: <code>mvn spring-boot:run</code></li>
-    <li>Abra o navegador e digite: <code>http://localhost:8080/swagger-ui.html</code></li>
-    <li>Para acessar o banco de dados, digite: <code></code></li>
+    <li>Abra o navegador e digite: <code>http://localhost:8080/swagger-ui.html</code> para visualizar a documentação. O Swagger também permite que alguns dados sejam inseridos, alterados, modificados e excluidos no banco de dados. </li>
+    <li>Voltando ao terminal, digite: <code>cd .. && cd frontend/todo-list</code></li>
+    <li>Execute o comando: <code>npm start</code> para executar o frontend</li>
 </ol>
+
+Se tudo deu certo, a página do "Gerenciador de Tarefas" já abriu no seu navegador padrão e já está pronto para o uso 🎉
 
 
