@@ -52,7 +52,8 @@ export default function TableContent({ index, id, description, check }) {
               defaultChecked={check}
               onChange={changeCheck}
             />
-            <p className={("table_row_desc", check && "table_row_desc_check")}>
+            <p className={("table_row_desc" && check ? "table_row_desc_check" : ""
+            )}>
               {description}
             </p>
               <button

@@ -15,13 +15,13 @@ export default function Table() {
   return (
     <div className="box_table">
       { tasks.length > 0 &&
-        tasks.map(({ id, description, check }, index) => (
+        tasks.map(({ id, description, checked }, index) => (
           <TableContent
             key={`${index}${Date.now()}`}
             index={index}
             id={id}
             description={description}
-            check={check}
+            check={checked}
           />
       ))}
     </div>

@@ -8,7 +8,7 @@ function TaskProvider({ children }) {
   const [tasks, setTasks] = useState([]);
 
   const getTasks = useCallback(async () => requestAPI('GET', 'tasks')
-    .then(({ data: tasks }) => setTasks(tasks)), []);
+    .then(({ data: tasks }) => {setTasks(tasks)}), []);
 
   const getTask = async (id) => requestAPI('GET', `tasks/${id}`)
     .then(({ data: task }) => task);
