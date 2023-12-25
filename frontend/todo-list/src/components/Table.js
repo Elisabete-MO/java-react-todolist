@@ -6,26 +6,24 @@ import TableContent from './TableContent';
 export default function Table() {
   const { tasks, getTasks } = useContext(TaskContext);
 
-    useEffect(()=>{
-      if(tasks.length === 0){
-        getTasks();
-      }
-    }, [tasks, getTasks]);
+  useEffect(()=>{
+    if(tasks.length === 0){
+      getTasks();
+    }
+  }, [tasks, getTasks]);
 
   return (
-    <div className="box_table" />
-//      {
-//        tasks.length > 0 && tasks
-//          .map(({ id, description, check }, index) => (
-//            <ItemRow
-//              key={`${index}${Date.now()}`}
-//              index={index}
-//              id={id}
-//              description={description}
-//              check={check}
-//            />
-//          ))
-//      }
-//    </div>
+    <div className="box_table">
+      { tasks.length > 0 &&
+        tasks.map(({ id, description, check }, index) => (
+          <TableContent
+            key={`${index}${Date.now()}`}
+            index={index}
+            id={id}
+            description={description}
+            check={check}
+          />
+      ))}
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import TaskContext from './TaskContext';
 import requestAPI from '../services/RequestAPI';
@@ -7,32 +7,22 @@ function TaskProvider({ children }) {
   /* armazena a descrição da tarefa */
   const [tasks, setTasks] = useState([]);
 
-  const getTasks = async () => requestAPI('GET', '/')
-    .then(({ data: tasks }) => setTasks(tasks));
+  const getTasks = useCallback(async () => requestAPI('GET', 'tasks')
+    .then(({ data: tasks }) => setTasks(tasks)), []);
 
-  const getTask = async (id) => requestAPI('GET', `/${id}`)
+  const getTask = async (id) => requestAPI('GET', `tasks/${id}`)
     .then(({ data: task }) => task);
 
-  const addTask = async (description) => requestAPI('POST', '/', {
+  const addTask = async (description) => requestAPI('POST', 'tasks', {
   description })
     .then(getTasks);
 
-  const rmTask = async (id) => requestAPI('DELETE', `/${id}`)
+  const rmTask = async (id) => requestAPI('DELETE', `tasks/${id}`)
     .then(getTasks);
 
-  const putTask = async (id, description, check) => requestAPI('PUT', `/${id}`,
-  { description, check })
+  const putTask = async (id, description, checked) => requestAPI('PUT',
+  `tasks/${id}`, { description, checked })
     .then(getTasks);
-
-  /* recebe os valores da API */
-//  const [data, setData] = useState([]);
-
-//  useEffect(() => {
-//    requestAPI().then((result) => {
-//      setData(result);
-//      setSearch(result);
-//    });
-//  }, []);
 
   const value = {
     tasks,

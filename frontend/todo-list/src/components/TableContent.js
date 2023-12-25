@@ -15,27 +15,32 @@ export default function TableContent({ index, id, description, check }) {
   const changeCheck = async ({target: { checked }}) => putTask(id, description, checked);
 
   return (
-    <div>
+    <div className="table_row">
       { editMode ?
         (
           <>
-            <div className="item-row-desc">
+            <div className="table_row-desc">
               <input
-                data-testid={`todo-task-edit-input-${index}`}
+                id={`todo-task-edit-input-${index}`}
                 value={inputDescription}
                 onChange={editHandle}
               />
             </div>
             <div>
               <button
-                data-testid={`todo-task-edit-save-btn-${index}`}
-                style={{ marginRight: '5px' }}
+                type="button"
+                className="btnEdit"
+                id={`todo-task-edit-save-btn-${index}`}
                 onClick={editSave}
-              >Check</button>
+              >Check
+              </button>
               <button
-                data-testid={`todo-task-edit-cancel-btn-${index}`}
+                type="button"
+                className="btnRem"
+                id={`todo-task-edit-cancel-btn-${index}`}
                 onClick={()=>setEditMode(false)}
-              >Cancel</button>
+              >Cancel
+              </button>
             </div>
           </>
         ) :
@@ -50,19 +55,22 @@ export default function TableContent({ index, id, description, check }) {
               onChange={changeCheck}
             />
             <div
-              className={("item-row-desc", check && "item-row-desc-check")}
+              className={("table_row-desc", check && "table_row-desc-check")}
             >{description}</div>
-            <div style={{ width: '66px'}}>
               <button
+                type="button"
+                className="btnEdit"
                 data-testid={`todo-task-edit-mode-btn-${index}`}
-                style={{ marginRight: '5px' }}
                 onClick={()=>setEditMode(true)}
-              >Editar</button>
+              >Editar
+              </button>
               <button
+                type="button"
+                className="btnRem"
                 data-testid={`todo-task-remove-btn-${index}`}
                 onClick={()=>rmTask(id)}
-              >Remove</button>
-            </div>
+              >Remover
+              </button>
           </>
         )
       }

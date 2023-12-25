@@ -1,22 +1,42 @@
-tbody {
-border: solid 2px red;
-  background: rgba(160, 160, 160, 0.3);
-  border-radius: 0 0 20px 20px;
-  box-sizing: content-box;
+.table_row {
+  color: #023031;
+  display: flex;
+  font-family: 'Jura';
+  flex-direction: row;
+  width: 90%;
+}
+
+.table_row > div {
   color: rgb(233, 233, 233);
+  font-family: 'Jura';
+  font-size: 0.4em;
   font-weight: 900;
-  margin-top: 0.5%;
-  overflow-x: auto;
-  text-align: center;
-  vertical-align: center;
-  width: 100%;
+  letter-spacing: 0.01em;
+  margin: auto;
+  padding: 0 5vw;
+  text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.445);
 }
 
-tbody tr:hover {
-  background-color: rgba(200, 0, 0, 0.5);
+#scales {
+  width: 0.4em;
 }
 
-table td {
-  line-height: 10px;
-  overflow: hidden;
+.item-row > div {
+  margin: 5px;
+}
+
+.item-row-desc {
+  flex-grow: 1;
+}
+
+.item-row-desc-check {
+  text-decoration: line-through;
+}
+
+.btnEdit:hover {
+  box-shadow: 0 0 5px #2e67f8 , 0 0 25px #2e67f8;
+}
+
+.btnRem:hover {
+  box-shadow: 0 0 5px red , 0 0 25px red;
 }
