@@ -1,0 +1,8 @@
+.content {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: auto;
+  margin: 0 auto;
+  width: 70%;
+}
