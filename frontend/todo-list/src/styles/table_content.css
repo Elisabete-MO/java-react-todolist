@@ -1,22 +1,62 @@
-tbody {
-border: solid 2px red;
-  background: rgba(160, 160, 160, 0.3);
-  border-radius: 0 0 20px 20px;
-  box-sizing: content-box;
-  color: rgb(233, 233, 233);
-  font-weight: 900;
-  margin-top: 0.5%;
-  overflow-x: auto;
-  text-align: center;
-  vertical-align: center;
+.table_row , table_row_desc {
+  color: #023031;
+  display: flex;
+  font-family: 'Jura';
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.table_row_desc {
+  display: flex;
+  flex-flow: row nowrap;
+  height: auto;
+  justify-content: space-between;
   width: 100%;
 }
 
-tbody tr:hover {
-  background-color: rgba(200, 0, 0, 0.5);
+.table_row_desc input {
+  border: 0.5px solid #e2e3e400;
+  border-radius: 7px;
+  box-shadow: 0 0 26px rgba(59, 59, 59, 0.8);
+  color: #003be5;
+  font-family: 'Jura';
+  font-size: 0.4em;
+  height: auto;
+  margin: 1%;
+  padding: 0;
+  text-align: center;
+  width: 70%;
 }
 
-table td {
-  line-height: 10px;
-  overflow: hidden;
+.table_row p {
+  color: rgb(233, 233, 233);
+  font-family: 'Jura';
+  font-size: 0.4em;
+  font-weight: 900;
+  height: auto;
+  letter-spacing: 0.01em;
+  margin: auto;
+  padding: 0 5vw;
+  text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.445);
+}
+
+#scales {
+  width: 0.4em;
+}
+
+.table_row_desc_check {
+  text-decoration: line-through;
+}
+
+.btnEdit:hover {
+  box-shadow: 0 0 5px #2e67f8 , 0 0 25px #2e67f8;
+}
+
+.btnRem:hover {
+  box-shadow: 0 0 5px red , 0 0 25px red;
+}
+
+.btnIns:hover {
+  box-shadow: 0 0 5px #2ff924 , 0 0 25px #2ff924;
 }

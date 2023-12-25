@@ -1,40 +1,38 @@
 import axios from 'axios';
 
-const HOST = process.env.REACT_APP_API_HOST || "localhost";
-const PORT = process.env.REACT_APP_API_PORT || 8080;
+const baseURL = process.env.REACT_APP_API_URL || "http://localhost:8080";
 
 const fetch = axios.create({
-  baseURL: `http://${HOST}:${PORT}/tasks`,
-  timeout: 1000,
+  baseURL,
+  timeout: 10000,
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json'
   }
 })
 
-const requestApi = async (method, endpoint, body) => {
+const requestAPI = async (method, endpoint, body) => {
   try {
-    const response = await fetch
-      .request({ method, url: endpoint, data: body })
+    const options = {
+      method,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    if (body && !['GET', 'DELETE'].includes(method.toUpperCase())) {
+      options.data = body;
+    }
+
+    const response = await fetch(endpoint, options);
+
+    if (!response.status >= 200 && response.status < 300) {
+      throw new Error(`Request failed with status: ${response.status}`);
+    }
     return { status: response.status, data: response.data };
   } catch (error) {
     return { status: 500, data: { error: 'I`m not a Teapot' } };
   }
 }
 
-export default requestApi
-
-
-// import axios from 'axios';
-
-//const requestAPI = async () => {
-//  try {
-//    const request = await fetch('http://localhost:8080/tasks');
-//    const { results } = await request.json();
-//    return results;
-//  } catch (error) {
-//    throw new Error(error.message);
-//  }
-//};
-//
-//export default requestAPI;
+export default requestAPI;

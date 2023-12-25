@@ -26,7 +26,7 @@ button {
   margin: 1%;
   padding: 0.8em;
   transition: all 0.3s ease-in-out 0s;
-  width: auto;
+  width: 15vh;
 }
 
 button:hover {
@@ -52,18 +52,12 @@ input , select {
   width: 25%;
 }
 
-th , td , tr {
-  font-family: 'Jura';
-  font-size: 1.2em;
-  font-weight: 900;
-  text-shadow: none;
-}
-
 p, label {
   color: rgb(233, 233, 233);
   font-family: 'Jura';
-  font-size: 0.3em;
+  font-size: 0.4em;
   font-weight: 900;
+  letter-spacing: 0.01em;
   text-shadow: 3px 3px 15px rgba(255, 255, 255, 0.445);
 }
 
