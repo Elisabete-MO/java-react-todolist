@@ -78,20 +78,13 @@ class Task {
 <h6> :information_source: Visando facilitar a demostração da aplicação, recomendo a execução do projeto através da IDE do IntelliJ IDEA. </h6>
 
 <ol>
-	<li>Faça um clone do projeto na sua máquina: <code>git clone git@github.com:Elisabete-MO/kotlin-to-do-list.git</code></li>
+	<li>Faça um clone do projeto na sua máquina: <code>git clone git@github.com:Elisabete-MO/java-react-todolist.git</code></li>
     <li>Abra o projeto no IntelliJ IDEA;</li>
     <li>Entre na pasta raiz do projeto: <code>cd <nome_da_pasta> </code></li>
 	<li>Execute o comando: <code>mvn install</code></li>
     <li>Execute o comando: <code>mvn spring-boot:run</code></li>
     <li>Abra o navegador e digite: <code>http://localhost:8080/swagger-ui.html</code></li>
-    <li>Para acessar o banco de dados, digite: <code>http://localhost:8080/h2-console</code></li>
+    <li>Para acessar o banco de dados, digite: <code></code></li>
 </ol>
 
-<details>
-    <summary>
-        <strong> :calendar: Histórico </strong>
-    </summary>
-
-Esse projeto foi desenvolvido primeiramente em HTML, CSS e javascript para atender aos requisitos de avaliação do módulo de front-end do curso de desenvolvimento web da Trybe. Agora, venho aplicar os conhecimentos adquiridos em Kotlin e Spring Boot para desenvolver uma API e, posteriormente, irei utilizar o Angular para remodelar o front-end.
-</details>
 
